@@ -1,0 +1,16 @@
+{% extends 'layout.html'%}\
+
+{% block body %}
+<div class="container">
+    <h2 class="display-4 text-center text-capitalize">{{data.title}}</h2>
+    <h4 class="text-mute text-center text-capitalize">{{data.subtitle}}</h4>
+    <p class="text-center text-mute text-capitalize"><small >written by {{data.title}} on {{data.date}}</small></p>
+    <hr class="my-4">
+    <p>{{data.body|safe}}</p>
+</div>
+<!-- title = db.Column(db.String(100))
+    subtitle = db.Column(db.String(200))
+    author = db.Column(db.String(100))
+    body = db.Column(db.Text )    
+    date  -->
+{% endblock %}

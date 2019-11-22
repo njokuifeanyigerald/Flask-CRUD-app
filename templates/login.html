@@ -1,0 +1,19 @@
+{% extends 'layout.html' %}
+{% block body %}
+<h2  class="text-center ">Login</h2>
+<hr class="my-4">
+{% from "extra/_formhelpers.html" import render_field %}
+    <form action=""  method="POST" class="container">
+        <div class="form-group">
+            {{render_field(form.email, class_="form-control")}}
+        </div>
+        <div class="form-group">
+            {{render_field(form.password, class_="form-control")}}
+        </div>
+       
+        <div class="form-group">
+            <p><input type="submit" class="btn btn-secondary btn-block" value="submit"></p>
+        </div>
+    </form>
+    <p class="text-center text-capitalize">yet to signup? <a href="/register">register</a></p>
+{% endblock %}

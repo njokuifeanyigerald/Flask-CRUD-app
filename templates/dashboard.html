@@ -1,0 +1,37 @@
+{% extends 'layout.html' %}
+{% block body %}
+<h3>DASHBOARD </h3>
+<small>welcome {{name}} </small>
+<hr class="my-4">
+<a class="btn btn-outline-primary text-capitalize" href="/add_article">add article</a>
+<hr class="my-4">
+<table class="table table-striped">
+    <tr>
+        <th class="text-capitalize">ID</th>
+        <th class="text-capitalize">title</th>
+        <th class="text-capitalize">author</th>
+        <th class="text-capitalize">subtitle</th>
+        <th class="text-capitalize">date</th>
+        <th class="text-capitalize"></th>
+        <th class="text-capitalize"></th>
+    </tr>
+    {% for info in data %}
+    <tr>
+        
+        <td class="text-capitalize">{{info.id}}</td>
+        <td class="text-capitalize">{{info.title}}</td>
+        <td class="text-capitalize">{{info.author}}</td>
+        <td class="text-capitalize">{{info.subtitle}}</td>
+        <td class="text-capitalize">{{info.date}}</td>
+        <td ><a class="text-capitalize  btn btn-outline-info pull-right" href="/edit_article/{{info.id}}">edit</a</th>
+        <td> <form class="form-group" action="{{url_for('delete_article', id=info.id)}}" method="post">
+                <input type="hidden" name="_method " value="DELETE">
+                <input type="submit" value="Delete" class="btn btn-danger">
+        </form></th>
+        
+    </tr>
+    {% endfor %}
+</table>
+
+
+{% endblock %}
